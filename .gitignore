@@ -24,13 +24,5 @@ doc/
 .DS_Store
 .idea
 .secret# Ignore other unneeded files.
-database.yml
-doc/
-*.swp
-*~
-.project
-.DS_Store
-.idea
-.secret
 
 config/initializers/secret_token.rb
