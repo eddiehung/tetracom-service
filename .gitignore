@@ -25,4 +25,4 @@ doc/
 .idea
 .secret# Ignore other unneeded files.
 
-config/initializers/secret_token.rb
+#config/initializers/secret_token.rb
