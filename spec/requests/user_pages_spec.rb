@@ -12,11 +12,15 @@ describe "User pages" do
 		it { should have_title(user.name) }
 	end
 
-	describe "signup" do
+	describe "signup page" do
 		before { visit signup_path }
 
 		it { should have_content('Sign up') }
 		it { should have_title(full_title('Sign up')) }
+	end
+
+	describe "signup" do
+		before { visit signup_path }
 
 		let(:submit) { "Create my account" }
 
@@ -46,6 +50,7 @@ describe "User pages" do
 				before { click_button submit }
 				let(:user) { User.find_by(email: 'user@example.com') }
 
+				it { should have_link('Sign out') }
 				it { should have_title(user.name) }
 				it { should have_selector('div.alert.alert-success', text: 'Welcome') }
 			end
