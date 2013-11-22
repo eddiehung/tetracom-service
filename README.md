@@ -4,6 +4,7 @@ TETRACOM stands for "Technology Transfer in Computing Systems".
 This is the source code of the service platform.
 
 The platform is build on the [*Ruby on Rails Tutorial*](http://railstutorial.org/) framework and it can be deployed on [*Heroku*](https://www.heroku.com).
+Thanks [Michael Hartl](http://michaelhartl.com) for the excellent tutorial.
 
 ###New user
 
@@ -21,4 +22,3 @@ The platform is build on the [*Ruby on Rails Tutorial*](http://railstutorial.org
 * You can also see the users who are requesting advices from you. They can be seen in your own profile page.
 * Personal information can be updated at "Account-Settings".
 
-Thanks [Michael Hartl](http://michaelhartl.com) for the excellent tutorial.
