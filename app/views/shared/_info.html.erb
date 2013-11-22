@@ -1,0 +1,25 @@
+<table class="table table-striped">
+	<tr>
+		<td>Email:</td>
+		<td><%= @user.email %></td>
+	</tr>
+	<tr>
+		<td>Phone:</td>
+		<td><%= @user.phone %></td>
+	</tr>
+	<tr>
+		<td>Affiliation:</td>
+		<td><%= @user.affiliation %></td>
+	</tr>
+	<tr>
+		<td>Expertise:</td>
+		<td>
+			<ul>
+				<% skills = @user.expertise.split(",") %>
+				<% skills.each do |skill| %>
+					<li><%= skill %></li>
+				<% end %>
+			</ul>
+		</td>
+	</tr>
+</table>

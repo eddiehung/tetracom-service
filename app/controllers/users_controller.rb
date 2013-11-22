@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			sign_in @user
-			flash[:success] = "Welcome to the Sample App!"
+			flash[:success] = "Welcome to the TETRACOM Consulation Service!"
 			redirect_to @user
 		else
 			render 'new'
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
 	def update
 		if @user.update_attributes(user_params)
-			flash[:success] = "Profile updated"
+			flash[:success] = "Profile updated."
 			redirect_to @user
 		else
 			render 'edit'

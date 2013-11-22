@@ -57,6 +57,24 @@ describe "User pages" do
 		it { should have_content(user.name) }
 		it { should have_title(user.name) }
 
+		describe "user details" do
+			let(:other_user) { FactoryGirl.create(:user) }
+			before { sign_in user }
+
+			describe "own profile" do
+				it { should have_content(user.email) }
+				it { should have_content(user.phone) }
+				it { should have_content(user.affiliation) }
+			end
+
+			describe "other user's profile" do
+				before { visit user_path(other_user) }
+				it { should have_content(other_user.email) }
+				it { should have_content(other_user.phone) }
+				it { should have_content(other_user.affiliation) }
+			end
+		end
+
 		describe "follow/unfollow buttons" do
 			let(:other_user) { FactoryGirl.create(:user) }
 			before { sign_in user }
