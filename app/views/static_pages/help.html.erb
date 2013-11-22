@@ -1,6 +1,8 @@
 <% provide(:title, 'Help') %>
 <h1>Help</h1>
 <p>
-This is the help page for the
-<a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> sample application.
+<ul>
+	<li>For new user, <%= link_to "Sign up", signup_path %> for a new account</li>
+	<li>For returning user, <%= link_to "Sign in", signin_path %> to access your account</li>
+</ul>
 </p>
