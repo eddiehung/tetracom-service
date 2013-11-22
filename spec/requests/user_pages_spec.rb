@@ -135,6 +135,9 @@ describe "User pages" do
 			before do
 				fill_in "Name",         with: "Example User"
 				fill_in "Email",        with: "user@example.com"
+				fill_in "Phone",        with: "+44(0)1234567890"
+				fill_in "Affiliation",  with: "Top University"
+				fill_in "Expertise",  	with: "FPGA"
 				fill_in "Password",     with: "foobar"
 				fill_in "Confirm Password", with: "foobar"
 			end
@@ -176,9 +179,15 @@ describe "User pages" do
 		describe "with valid information" do
 			let(:new_name)  { "New Name" }
 			let(:new_email) { "new@example.com" }
+			let(:new_phone) { "+852 12345678" }
+			let(:new_affiliation) { "Monster University" }
+			let(:new_expertise) { "FPGA, ASIC" }
 			before do
 				fill_in "Name",             with: new_name
 				fill_in "Email",            with: new_email
+				fill_in "Phone",        	with: new_phone
+				fill_in "Affiliation",  	with: new_affiliation
+				fill_in "Expertise",  		with: new_expertise
 				fill_in "Password",         with: user.password
 				fill_in "Confirm Password", with: user.password
 				click_button "Save changes"

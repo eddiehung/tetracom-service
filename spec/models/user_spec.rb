@@ -2,13 +2,15 @@ require 'spec_helper'
 
 describe User do
 
-	before { @user = User.new(name: "Example User", email: "user@example.com",
-							  password: "foobar", password_confirmation: "foobar") }
+	before { @user = User.new(name: "Example User", email: "user@example.com", phone: "+44(0)1234567890", affiliation: "Top university", expertise: "FPGA, ASIC", password: "foobar", password_confirmation: "foobar") }
 
 	subject { @user }
 
 	it { should respond_to(:name)}
 	it { should respond_to(:email)}
+	it { should respond_to(:phone)}
+	it { should respond_to(:affiliation)}
+	it { should respond_to(:expertise)}
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
@@ -86,6 +88,51 @@ describe User do
 			@user.save
 			expect(@user.reload.email).to eq mixed_case_email.downcase
 		end
+	end
+
+	describe "when phone is not present" do
+		before { @user.phone = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when phone format is invalid" do
+		it "should be invalid" do
+			phones = %w[abc xyz]
+			phones.each do |invalid_phone|
+				@user.phone = invalid_phone
+				expect(@user).not_to be_valid
+			end
+		end
+	end
+
+	describe "when phone format is valid" do
+		it "should be valid" do
+			phones = %w[+44(0)123456890 1234567890]
+			phones.each do |valid_phone|
+				@user.phone = valid_phone
+				expect(@user).to be_valid
+			end
+		end
+	end
+
+	describe "when affiliation is not present" do
+		before { @user.affiliation = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when affiliation is too long" do
+		before { @user.affiliation = "a" * 201 }
+		it { should_not be_valid }
+	end
+
+	describe "when expertise is not present" do
+		before { @user.expertise = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when expertise is too long" do
+		before { @user.expertise = "a" * 1001 }
+		it { should_not be_valid }
 	end
 
 	describe "when password is not present" do
