@@ -90,12 +90,12 @@ describe "User pages" do
 
 				it "should increment the other user's followers count" do
 					expect do
-						click_button "Follow"
+						click_button "Follow this expert"
 					end.to change(other_user.followers, :count).by(1)
 				end
 
 				describe "toggling the button" do
-					before { click_button "Follow" }
+					before { click_button "Follow this expert" }
 					it { should have_xpath("//input[@value='Unfollow this expert']") }
 				end
 			end
@@ -108,18 +108,18 @@ describe "User pages" do
 
 				it "should decrement the followed user count" do
 					expect do
-						click_button "Unfollow"
+						click_button "Unfollow this expert"
 					end.to change(user.followed_users, :count).by(-1)
 				end
 
 				it "should decrement the other user's followers count" do
 					expect do
-						click_button "Unfollow"
+						click_button "Unfollow this expert"
 					end.to change(other_user.followers, :count).by(-1)
 				end
 
 				describe "toggling the button" do
-					before { click_button "Unfollow" }
+					before { click_button "Unfollow this expert" }
 					it { should have_xpath("//input[@value='Follow this expert']") }
 				end
 			end
@@ -242,8 +242,8 @@ describe "User pages" do
 				visit following_user_path(user)
 			end
 
-			it { should have_title(full_title('Following')) }
-			it { should have_selector('h3', text: 'Following') }
+			it { should have_title(full_title('Experts selected')) }
+			it { should have_selector('h3', text: 'Experts selected') }
 			it { should have_link(other_user.name, href: user_path(other_user)) }
 		end
 
@@ -253,8 +253,8 @@ describe "User pages" do
 				visit followers_user_path(other_user)
 			end
 
-			it { should have_title(full_title('Followers')) }
-			it { should have_selector('h3', text: 'Followers') }
+			it { should have_title(full_title('Users requesting advices')) }
+			it { should have_selector('h3', text: 'Users requesting advices') }
 			it { should have_link(user.name, href: user_path(user)) }
 		end
 	end

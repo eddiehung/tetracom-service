@@ -6,9 +6,13 @@ FactoryGirl.define do
 		sequence(:email) { |n| "person_#{n}@example.com" }
 		phone		"+44(0)1234567890"
 		sequence(:affiliation)	{ |n| "Top #{n} university" }
-		expertise	"FPGA"
+		expertise	"FPGA, ASIC"
 		password	"foobar"
 		password_confirmation	"foobar"
+		show_name 	true
+		show_email  true
+		show_phone  true
+		show_affiliation	true
 
 		factory :admin do
 			admin true

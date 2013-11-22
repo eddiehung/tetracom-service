@@ -1,22 +1,70 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :email %>
-<%= f.text_field :email %>
-
-<%= f.label :phone %>
-<%= f.text_field :phone %>
-
-<%= f.label :affiliation %>
-<%= f.text_field :affiliation %>
-
-<%= f.label :expertise %>
-<%= f.text_field :expertise %>
-
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.label :password_confirmation, "Confirm Password" %>
-<%= f.password_field :password_confirmation %>
+<table width="100%">
+	<col width="95">
+	<col width="5">
+	<tr>
+		<td>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</td>
+		<td>
+			<%= f.check_box :show_name %>
+			Public
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</td>
+		<td>
+			<%= f.check_box :show_email %>
+			Public
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :phone %>
+			<%= f.text_field :phone %>
+		</td>
+		<td>
+			<%= f.check_box :show_phone %>
+			Public
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :affiliation %>
+			<%= f.text_field :affiliation %>
+		</td>
+		<td>
+			<%= f.check_box :show_affiliation %>
+			Public
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :expertise, "Expertise (separate each item by comma)" %>
+			<%= f.text_field :expertise %>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :password_confirmation, "Confirm Password" %>
+			<%= f.password_field :password_confirmation %>
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>

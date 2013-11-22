@@ -1,8 +1,19 @@
 <% provide(:title, 'Help') %>
 <h1>Help</h1>
-<p>
+<p>New user</p>
 <ul>
-	<li>For new user, <%= link_to "Sign up", signup_path %> for a new account</li>
-	<li>For returning user, <%= link_to "Sign in", signin_path %> to access your account</li>
+	<li>Click <%= link_to "Sign up", signup_path %> to register for a new account.</li>
+	<li>By default all personal information is not disclosed to public. If you want the other uses to see it, tick the checkboxes.</li>
+	<li>For normal user, it is recommended to publish at least one form of contact (email, phone), such that other users (experts) on this platform can answer your questions directly.</li>
+	<li>We welcome knowledge sharing, fill in your skills in the "Expertise" field. Items are comma separated.</li>
+</ul>
+<p>Returning user</p>
+<ul>
+	<li>Click <%= link_to "Sign in", signin_path %> to access your account.</li>
+	<li>View your profile via "Home" or "Account-Profile".</li>
+	<li>Details of other users can be accessed via "Users".</li>
+	<li>If you would like to send a request to an expert on this platform, click his/her name to access the corresponding profile page, then click "Follow this expert".</li>
+	<li>You can also see the users who are requesting advices from you. It is available in your own profile page.</li>
+	<li>Personal information can be updated at "Account-Settings".</li>
 </ul>
 </p>

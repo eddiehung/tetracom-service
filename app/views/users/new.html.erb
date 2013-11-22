@@ -5,7 +5,8 @@
 	<div class="span6 offset3">
 		<%= form_for(@user) do |f| %>
 			<%= render 'fields', f: f %>
-			<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+			<p><%= link_to 'Terms and conditions', terms_path, target: "_blank" %>
+			<p><%= f.submit "Create my account", class: "btn btn-primary" %><p>
 		<% end %>
 	</div>
 </div>

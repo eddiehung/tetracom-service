@@ -1,15 +1,15 @@
 <table class="table table-striped">
 	<tr>
 		<td>Email:</td>
-		<td><%= @user.email %></td>
+		<td><%= current_user?(@user) || @user.show_email==true ? @user.email : 'Hidden' %></td>
 	</tr>
 	<tr>
 		<td>Phone:</td>
-		<td><%= @user.phone %></td>
+		<td><%= current_user?(@user) || @user.show_phone==true ? @user.phone : 'Hidden' %></td>
 	</tr>
 	<tr>
 		<td>Affiliation:</td>
-		<td><%= @user.affiliation %></td>
+		<td><%= current_user?(@user) || @user.show_affiliation==true ? @user.affiliation : 'Hidden' %></td>
 	</tr>
 	<tr>
 		<td>Expertise:</td>

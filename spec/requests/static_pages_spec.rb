@@ -31,8 +31,8 @@ describe "Static pages" do
 					visit root_path
 				end
 
-				it { should have_link("0 experts following", href: following_user_path(user)) }
-				it { should have_link("1 users watching", href: followers_user_path(user)) }
+				it { should have_link("0 experts", href: following_user_path(user)) }
+				it { should have_link("1 requests", href: followers_user_path(user)) }
 			end
 		end
 	end

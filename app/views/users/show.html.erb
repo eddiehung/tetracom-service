@@ -3,8 +3,8 @@
 	<aside class="span4">
 	<section>
 	<h1>
-		<%= gravatar_for @user %>
-		<%= @user.name %>
+		<%= gravatar_for @user if (current_user?(@user)||@user.show_name==true) %>
+		<%= current_user?(@user)||@user.show_name==true ? @user.name : "Hidden_#{@user.id}" %>
 	</h1>
 	</section>
 	<section>
