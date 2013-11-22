@@ -47,8 +47,8 @@ describe "Static pages" do
 
 	describe "About page" do
 		before { visit about_path }
-		let(:heading) { 'About Us' }
-		let(:page_title) { 'About Us' }
+		let(:heading) { 'About us' }
+		let(:page_title) { 'About us' }
 
 		it_should_behave_like "all static pages"
 	end
@@ -71,7 +71,7 @@ describe "Static pages" do
 		first(:link, "Sign in").click
 		expect(page).to have_title(full_title('Sign in'))
 		click_link "About"
-		expect(page).to have_title(full_title('About Us'))
+		expect(page).to have_title(full_title('About us'))
 		click_link "Contact"
 		expect(page).to have_title(full_title('Contact'))
 	end
