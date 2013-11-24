@@ -18,10 +18,6 @@
 			<%= f.label :email %>
 			<%= f.text_field :email %>
 		</td>
-		<td>
-			<%= f.check_box :show_email %>
-			Public
-		</td>
 	</tr>
 	<tr>
 		<td>
@@ -45,7 +41,7 @@
 	</tr>
 	<tr>
 		<td>
-			<%= f.label :expertise, "Expertise (separate each item by comma)" %>
+			<%= f.label :expertise, "Expertise (separate each item by comma; for normal user, keep this list empty)" %>
 			<%= f.text_field :expertise %>
 		</td>
 		<td>

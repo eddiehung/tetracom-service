@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 									dependent: :destroy
 	has_many :followers, through: :reverse_relationships, source: :follower
 
-	before_save { self.email = email.downcase }
+	before_save :default_values
 	before_create :create_remember_token
 
 	validates :name, presence: true, length: { maximum: 50 }
@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
 	VALID_PHONE_REGEX = /\A[\d+\-\(\) ]+\z/i
-	validates :phone, presence: true, format: { with: VALID_PHONE_REGEX }
+	validates :phone, format: { with: VALID_PHONE_REGEX }
 
-	validates :affiliation, presence: true, length: { maximum: 200 }
+	validates :affiliation, length: { maximum: 200 }
 
-	validates :expertise, presence: true, length: { maximum: 1000 }
+	validates :expertise, length: { maximum: 1000 }
 
 	has_secure_password
 	validates :password, length: { minimum: 6 }
@@ -48,5 +48,10 @@ class User < ActiveRecord::Base
 
 	def create_remember_token
 		self.remember_token = User.encrypt(User.new_remember_token)
+	end
+
+	def default_values
+		self.email = email.downcase
+		self.show_email ||= true
 	end
 end
