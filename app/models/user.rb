@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
 	validates :affiliation, length: { maximum: 200 }
 
-	VALID_EXPERTISE_REGEX = /(\A\z$)|(\A([\w'"&]+\s*)(,{1}\s*[\w'"&]+)*)/
+	VALID_EXPERTISE_REGEX = /(\A\z$)|(\A([\w\'\"\&]+\s*)([\,]{1}\s*[\w\'\"\&]+)*)/
 	validates :expertise, length: { maximum: 2000 }, format: { with: VALID_EXPERTISE_REGEX }
 
 	has_secure_password
