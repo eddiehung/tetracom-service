@@ -4,7 +4,7 @@
 	<section>
 	<h1>
 		<%= gravatar_for @user if (current_user?(@user)||@user.show_name==true) %>
-		<%= current_user?(@user)||@user.show_name==true ? @user.name : "Hidden_#{@user.id}"%>
+		<%= current_user?(@user)||@user.show_name==true ? @user.name : "Name hidden (#{@user.id})"%>
 	</h1>
 	<span><%= link_to "view my profile", @user %></span>
 	</section>
