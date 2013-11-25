@@ -5,7 +5,11 @@ class UsersController < ApplicationController
 	before_action :signed_in_user_filter, only: [:new, :create]
 
 	def index
-		@users = User.paginate(page: params[:page], :conditions => current_user.admin? "": "expertise<>''" )
+		if current_user.admin?
+			@users = User.paginate(page: params[:page] )
+		else
+			@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
+		end
 	end
 
 	def show
