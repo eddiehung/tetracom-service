@@ -4,7 +4,13 @@
 		<%= link_to "tetracom", '#', id: "logo" %>
 		<nav>
 		<ul class="nav pull-right">
-			<li><%= link_to "Home",    (signed_in? current_user : root_path) %></li>
+			<li>
+			<%= if signed_in? %>
+				<%= link_to "Home",    current_user %>
+			<%= else %>
+				<%= link_to "Home",    root_path %>
+			<%= end %>
+			</li>
 			<li><%= link_to "Help",    help_path %></li>
 			<% if signed_in? %>
 				<li><%= link_to "Experts", users_path %></li>
