@@ -1,42 +1,20 @@
-<% if signed_in? %>
-	<div class="row">
-		<aside class="span4">
-		<section>
-		<%= render 'shared/user_info' %>
-		</section>
-		</aside>
-		<div class="span8">
-			<ul>
-				<li>Help: Guidance of using this platform</li>
-				<li>Experts: Show the list of experts and their contact information</li>
-				<li>Account: 
-				<ul>
-					<li>Profile: View your information.</li>
-					<li>Settings: Update your information.</li>
-					<li>Sign out.</li>
-				</ul>
-			</ul>
+<div class="row">
+	<div class="span8">
+		<div class="center hero-unit">
+			<h1>Consultation Service</h1>
+
+			<h2>
+				for <a href="http://www.tetracom.eu/" target="_blank">Technology Transfer in Computing Systems</a>.
+			</h2>
+
+			<%= link_to image_tag("tetra.jpg", alt: "TETRA"), 'http://www-tetracom.iss.rwth-aachen.de/', target: "_blank" %>
 		</div>
 	</div>
-<% else %>
-	<div class="row">
-		<div class="span8">
-			<div class="center hero-unit">
-				<h1>Consultation Service</h1>
 
-				<h2>
-					for <a href="http://www.tetracom.eu/" target="_blank">Technology Transfer in Computing Systems</a>.
-				</h2>
-
-				<%= link_to image_tag("tetra.jpg", alt: "TETRA"), 'http://www-tetracom.iss.rwth-aachen.de/', target: "_blank" %>
-			</div>
-		</div>
-
-		<div class="span4">
-			<div class="hero-unit">
-				<p><%= link_to "Create account", signup_path, class: "btn btn-large btn-block btn-primary" %></p>
-				<p><%= link_to "User sign in", signin_path, class: "btn btn-large btn-block btn-success" %></p>
-			</div>
+	<div class="span4">
+		<div class="hero-unit">
+			<p><%= link_to "Create account", signup_path, class: "btn btn-large btn-block btn-primary" %></p>
+			<p><%= link_to "User sign in", signin_path, class: "btn btn-large btn-block btn-success" %></p>
 		</div>
 	</div>
-<% end %>
+</div>
