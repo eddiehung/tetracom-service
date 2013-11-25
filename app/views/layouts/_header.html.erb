@@ -5,11 +5,11 @@
 		<nav>
 		<ul class="nav pull-right">
 			<li>
-			<%= if signed_in? %>
+			<% if signed_in? %>
 				<%= link_to "Home",    current_user %>
-			<%= else %>
+			<% else %>
 				<%= link_to "Home",    root_path %>
-			<%= end %>
+			<% end %>
 			</li>
 			<li><%= link_to "Help",    help_path %></li>
 			<% if signed_in? %>
