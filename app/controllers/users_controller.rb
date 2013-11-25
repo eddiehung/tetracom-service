@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 	before_action :signed_in_user_filter, only: [:new, :create]
 
 	def index
-		@users = User.paginate(page: params[:page], :conditions => :expertise.empty?==false )
+		@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
 	end
 
 	def show
