@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 	validates :expertise, length: { maximum: 2000 }, format: { with: VALID_EXPERTISE_REGEX }
 
 	has_secure_password
-	validates :password, length: { minimum: 6 }
+	validates :password, length: { minimum: 6 }, allow_nil: true
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64
