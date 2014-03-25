@@ -13,3 +13,7 @@
 	* Admin can set the permission of the other users (normal, admin).
 
 ### All admins should contact CSG to set up their Kerberized super-user password.
+
+### http://cvm-tetracom.doc.ic.ac.uk/ is not accessible outside campus.
+
+### Make an alias http://tetracom-service.doc.ic.ac.uk//
