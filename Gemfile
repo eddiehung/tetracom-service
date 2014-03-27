@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
-#ruby-gemset=railstutorial_rails_4_0
+ruby '2.1.1'
+#ruby-gemset=tetracom-service
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
@@ -18,6 +18,11 @@ group :development, :test do
 	gem 'spork-rails', '4.0.0'
 	gem 'guard-spork', '1.5.0'
 	gem 'childprocess', '0.3.9'
+	# Use Capistrano for deployment
+	gem 'capistrano', '~> 3.0.1'
+	gem 'capistrano-rails', '~> 1.1.0'
+	gem 'capistrano-bundler'
+	gem 'capistrano-rbenv', "~> 2.0"
 end
 
 group :test do
@@ -63,9 +68,6 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
