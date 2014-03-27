@@ -10,22 +10,10 @@ set :scm, :git
 # set :log_level, :debug
 set :pty, true
 
-# set :use_sudo, false
-# set :user, "cpc10"
-# set :scm_passphrase, "password"
-# set :deploy_via, :copy
-# set :ssh_options, { :forward_agent => true, :port => 22 }
-
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-#set :default_environment, {
-#	'PATH' => "/usr/local/rvm/rubies/ruby-2.1.1/bin:$PATH",
-#	'RUBY_VERSION' => 'ruby 2.1.1',
-#	'GEM_HOME'     => '/usr/local/rvm/gems/ruby-2.1.1',
-#	'GEM_PATH'     => '/usr/local/rvm/gems/ruby-2.1.1',
-#	'BUNDLE_PATH'  => '/usr/local/rvm/gems/ruby-2.1.1'  # If you are using bundler.
-#}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :rvm_ruby_string, :local
 set :keep_releases, 5
 
