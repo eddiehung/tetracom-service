@@ -28,7 +28,6 @@ set :pty, true
 #}
 set :rvm_ruby_string, :local
 set :keep_releases, 5
-set :rails_env, :production
 
 namespace :deploy do
 
