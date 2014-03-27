@@ -20,7 +20,7 @@ set :pty, true
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :default_environment, {
-	'PATH' => "/usr/local/rvm/gems/ruby-2.1.1/bin:$PATH",
+	'PATH' => "/usr/local/rvm/rubies/ruby-2.1.1/bin:$PATH",
 	'RUBY_VERSION' => 'ruby 2.1.1',
 	'GEM_HOME'     => '/usr/local/rvm/gems/ruby-2.1.1',
 	'GEM_PATH'     => '/usr/local/rvm/gems/ruby-2.1.1',
