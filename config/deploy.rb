@@ -16,6 +16,7 @@ set :pty, true
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :rvm_ruby_string, :local
 set :keep_releases, 5
+set :use_sudo, false
 
 namespace :deploy do
 
