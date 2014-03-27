@@ -19,13 +19,14 @@ set :pty, true
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-set :default_environment, {
-	'PATH' => "/usr/local/rvm/rubies/ruby-2.1.1/bin:$PATH",
-	'RUBY_VERSION' => 'ruby 2.1.1',
-	'GEM_HOME'     => '/usr/local/rvm/gems/ruby-2.1.1',
-	'GEM_PATH'     => '/usr/local/rvm/gems/ruby-2.1.1',
-	'BUNDLE_PATH'  => '/usr/local/rvm/gems/ruby-2.1.1'  # If you are using bundler.
-}
+#set :default_environment, {
+#	'PATH' => "/usr/local/rvm/rubies/ruby-2.1.1/bin:$PATH",
+#	'RUBY_VERSION' => 'ruby 2.1.1',
+#	'GEM_HOME'     => '/usr/local/rvm/gems/ruby-2.1.1',
+#	'GEM_PATH'     => '/usr/local/rvm/gems/ruby-2.1.1',
+#	'BUNDLE_PATH'  => '/usr/local/rvm/gems/ruby-2.1.1'  # If you are using bundler.
+#}
+set :rvm_ruby_string, :local
 set :keep_releases, 5
 
 namespace :deploy do
