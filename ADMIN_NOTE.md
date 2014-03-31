@@ -25,7 +25,6 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 	bundle install
 	```
 8. Configure Apache
-	```
 	vim /etc/apache2/http.conf
 	1 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40/buildout/apache2/mod_passenger.so
 	2    <IfModule mod_passenger.c>
@@ -52,7 +51,6 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 	23         Options -MultiViews
 	24     </Directory>
 	25 </VirtualHost>
-	```
 	```
 	a2enmod ssl
 	a2enmod headers
