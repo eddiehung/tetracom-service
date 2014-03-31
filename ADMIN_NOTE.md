@@ -28,33 +28,33 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 
 	vim /etc/apache2/http.conf
 
-	```
-	1 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40/buildout/apache2/mod_passenger.so
-	2    <IfModule mod_passenger.c>
-	3      PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40
-	4      PassengerDefaultRuby /usr/local/rvm/gems/ruby-1.9.3-p545/wrappers/ruby
-	5    </IfModule>
-	6 
-	7 <VirtualHost *:80>
-	8     ServerName tetracom-service.doc.ic.ac.uk
-	9     ServerAlias cvm-tetracom.doc.ic.ac.uk
-	10     Redirect permanent / https://tetracom-service.doc.ic.ac.uk/
-	11 </VirtualHost>
-	12 
-	13 <VirtualHost *:443>
-	14     SSLEngine on
-	15     SSLCertificateFile /etc/apache2/ssl.crt/mydomain.crt
-	16     SSLCertificateKeyFile /etc/apache2/ssl.key/mydomain.key
-	17     DocumentRoot /var/www/tetracom-service/current/public
-	18     ServerName tetracom-service.doc.ic.ac.uk
-	19     ServerAlias cvm-tetracom.doc.ic.ac.uk
-	20     RailsEnv production
-	21     <Directory /var/www/tetracom-service/current/public>  
-	22         SSLRequireSSL
-	23         Options -MultiViews
-	24     </Directory>
-	25 </VirtualHost>
-	```
+		```
+		1 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40/buildout/apache2/mod_passenger.so
+		2    <IfModule mod_passenger.c>
+		3      PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40
+		4      PassengerDefaultRuby /usr/local/rvm/gems/ruby-1.9.3-p545/wrappers/ruby
+		5    </IfModule>
+		6 
+		7 <VirtualHost *:80>
+		8     ServerName tetracom-service.doc.ic.ac.uk
+		9     ServerAlias cvm-tetracom.doc.ic.ac.uk
+		10     Redirect permanent / https://tetracom-service.doc.ic.ac.uk/
+		11 </VirtualHost>
+		12 
+		13 <VirtualHost *:443>
+		14     SSLEngine on
+		15     SSLCertificateFile /etc/apache2/ssl.crt/mydomain.crt
+		16     SSLCertificateKeyFile /etc/apache2/ssl.key/mydomain.key
+		17     DocumentRoot /var/www/tetracom-service/current/public
+		18     ServerName tetracom-service.doc.ic.ac.uk
+		19     ServerAlias cvm-tetracom.doc.ic.ac.uk
+		20     RailsEnv production
+		21     <Directory /var/www/tetracom-service/current/public>  
+		22         SSLRequireSSL
+		23         Options -MultiViews
+		24     </Directory>
+		25 </VirtualHost>
+		```
 	```
 	a2enmod ssl
 	a2enmod headers
