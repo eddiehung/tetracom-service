@@ -4,8 +4,6 @@
 	* Ask CSG to set your default shell to be bash (otherwise Capistrano will not work properly).
 	* Generate key, put public key on GitHub
 	* Install RVM + Ruby + Gem + Rails (Need root access)
-		\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=1.9.3
-		echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" >> ~/.bashrc
 	* Allow CC group member to write to the RVM directory (Need root access)
 		chown root:cc -R /usr/local/rvm
 	* Install Apache and PostgreSQL
