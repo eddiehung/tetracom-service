@@ -2,7 +2,7 @@
 Server-side Installation 
 =======================
 
-For root access, CSG does not provide sudo, please use Kerberized super-user[ksu]
+For root access, CSG does not provide sudo, please use Kerberized super-user (ksu). [Reference] (http://www.doc.ic.ac.uk/csg/services/authentication)
 
 1. Contact CSG to set up your ksu password.
 
