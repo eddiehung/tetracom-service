@@ -35,6 +35,7 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 
 		vim /etc/apache2/http.conf
 
+
 		1 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40/buildout/apache2/mod_passenger.so
 		2    <IfModule mod_passenger.c>
 		3      PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40
@@ -60,7 +61,8 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 		23         Options -MultiViews
 		24     </Directory>
 		25 </VirtualHost>
-		
+
+
 		a2enmod ssl
 		a2enmod headers
 
@@ -69,46 +71,58 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 
 Client-side Setting
 =======================
+
 1. Generate SSH key, put public key on the server (for Capistrano) and GitHub
 
 2. Install RVM + Ruby + Gem + Rails (May need sudo or root access, depending on your client machine settings)
+
 		\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=1.9.3
 		echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" >> ~/.bashrc
 
 3. Get source code from GitHub
+
 		cd <your-project-directory>
 		git clone git@github.com:custom-computing-ic/tetracom-service.git
 
 4. Install gems for development
+
 		cd <tetracom-service>
 		gem install bundler
 		rvmsudo bundle install --without production
 
 5. Edit Capistrano settings 
+
 		vim config/deploy/production.rb
 		Change cpc10 to your user name
 
 Development and Deployment
 =======================
+
 1. Do your own development, to run development server
+
 		rails s -p 55558
 
 2. Commit the updates to GitHub
+
 		git add .
 		git commit -m "<log message>"
 		git push origin
 
 3. Deploy the source code (update the production server)
+
 		cap production deploy
 
 Backup and Restore Database
 =======================
+
 1. Check the user name, password and database name in the server ``/var/www/tetracom-service/shared/config/database.yml``
 
 2. Backup
+
 		pg-dump -U <user name> -h localhost -Fc -f <backup file name> <database name>
 
 3. Stop the database and restore data
+
 		service apache2 stop
 		dropdb -U <user name> -h localhost <database name>
 		pg-restore -U <user name> --password -h localhost -v -C -d template1 <backup file name>
