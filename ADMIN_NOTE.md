@@ -8,27 +8,21 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 2. Ask CSG to set your default shell to be bash (otherwise Capistrano will not work properly).
 3. Generate key, put public key on GitHub
 4. Install RVM + Ruby + Gem + Rails (Need root access)
-	```
-	\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=1.9.3
-	echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" >> ~/.bashrc
-	```
+		\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=1.9.3
+		echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" >> ~/.bashrc
 5. Allow CC group member to write to the RVM directory (Need root access)
-	```chown root:cc -R /usr/local/rvm```
+		chown root:cc -R /usr/local/rvm
 6. Install Apache and PostgreSQL
-	```aptitude install apache2 postgresql-common postgresql-9.3 libpq-dev```
+		aptitude install apache2 postgresql-common postgresql-9.3 libpq-dev
 7. Install gems for production (May need root access, check permission of $GEM_PATH)
-	```
-	gem install bundler
-	gem install pg
-	gem install passenger
-	passenger-install-apache2-module
-	bundle install
-	```
+		gem install bundler
+		gem install pg
+		gem install passenger
+		passenger-install-apache2-module
+		bundle install
 8. Configure Apache
+		vim /etc/apache2/http.conf
 
-	vim /etc/apache2/http.conf
-
-		```
 		1 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40/buildout/apache2/mod_passenger.so
 		2    <IfModule mod_passenger.c>
 		3      PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40
@@ -54,51 +48,56 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 		23         Options -MultiViews
 		24     </Directory>
 		25 </VirtualHost>
-		```
-	```
-	a2enmod ssl
-	a2enmod headers
-	```
+		
+		a2enmod ssl
+		a2enmod headers
 9. Set up SSL certificate
 	Put them in /etc/apache2/ssl.crt/mydomain.crt and /etc/apache2/ssl.key/mydomain.key
 
-### Client-side Setting
-	* Generate SSH key, put public key on the server (for Capistrano) and GitHub
-	* Install RVM + Ruby + Gem + Rails (May need sudo or root access, depending on your client machine settings)
+Client-side Setting
+=======================
+1. Generate SSH key, put public key on the server (for Capistrano) and GitHub
+2. Install RVM + Ruby + Gem + Rails (May need sudo or root access, depending on your client machine settings)
 		\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=1.9.3
 		echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" >> ~/.bashrc
-	* Get source code from GitHub
+3. Get source code from GitHub
 		cd <your-project-directory>
 		git clone git@github.com:custom-computing-ic/tetracom-service.git
-	* Install gems for development
+4. Install gems for development
 		cd <tetracom-service>
 		gem install bundler
 		rvmsudo bundle install --without production
-	* Edit Capistrano settings 
+5. Edit Capistrano settings 
 		vim config/deploy/production.rb
 		Change cpc10 to your user name
 
-### Development and Deployment
-	* Do your own development, to run development server
+Development and Deployment
+=======================
+1. Do your own development, to run development server
 		rails s -p 55558
-	* Commit the updates to GitHub
+2. Commit the updates to GitHub
 		git add .
 		git commit -m "<log message>"
 		git push origin
-	* Deploy the source code (update the production server)
+3. Deploy the source code (update the production server)
 		cap production deploy
 
-### Backup and Restore Database
-	* Check the user name, password and database name in the server ``/var/www/tetracom-service/shared/config/database.yml``
-	* Backup
+Backup and Restore Database
+=======================
+1. Check the user name, password and database name in the server ``/var/www/tetracom-service/shared/config/database.yml``
+2. Backup
 		pg-dump -U <user name> -h localhost -Fc -f <backup file name> <database name>
-	* Stop the database and restore data
+3. Stop the database and restore data
 		service apache2 stop
 		dropdb -U <user name> -h localhost <database name>
 		pg-restore -U <user name> --password -h localhost -v -C -d template1 <backup file name>
 		service apache2 start
 	
-### Useful Websites (I have modified the steps and settings to cope with our specific environment, the following information is for reference only.)
+Useful Websites
+=======================
+
+I have modified the steps and settings to cope with our specific environment, the following information is for reference only.
+
 	* [Ruby Version Manager (RVM)](http://rvm.io/)
 	* [How To Setup Ruby on Rails with Postgres](https://www.digitalocean.com/community/articles/how-to-setup-ruby-on-rails-with-postgres)
 	* [How to Create and Install an Apache Self Signed Certificate](https://www.sslshopper.com/article-how-to-create-and-install-an-apache-self-signed-certificate.html)
