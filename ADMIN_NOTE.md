@@ -8,19 +8,24 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 2. Ask CSG to set your default shell to be bash (otherwise Capistrano will not work properly).
 3. Generate key, put public key on GitHub
 4. Install RVM + Ruby + Gem + Rails (Need root access)
+	``
 	\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=1.9.3
 	echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" >> ~/.bashrc
+	``
 5. Allow CC group member to write to the RVM directory (Need root access)
-	chown root:cc -R /usr/local/rvm
+	``chown root:cc -R /usr/local/rvm``
 6. Install Apache and PostgreSQL
-	aptitude install apache2 postgresql-common postgresql-9.3 libpq-dev
+	``aptitude install apache2 postgresql-common postgresql-9.3 libpq-dev``
 7. Install gems for production (May need root access, check permission of $GEM_PATH)
+	``
 	gem install bundler
 	gem install pg
 	gem install passenger
 	passenger-install-apache2-module
 	bundle install
+	``
 8. Configure Apache
+	``
 	vim /etc/apache2/http.conf
 	1 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.40/buildout/apache2/mod_passenger.so
 	2    <IfModule mod_passenger.c>
@@ -47,8 +52,11 @@ For root access, CSG does not provide sudo, please use Kerberized super-user[ksu
 	23         Options -MultiViews
 	24     </Directory>
 	25 </VirtualHost>
+	``
+	``
 	a2enmod ssl
 	a2enmod headers
+	``
 9. Set up SSL certificate
 	Put them in /etc/apache2/ssl.crt/mydomain.crt and /etc/apache2/ssl.key/mydomain.key
 
