@@ -84,3 +84,8 @@
 		pg-restore -U <user name> --password -h localhost -v -C -d template1 <backup file name>
 		service apache2 start
 	
+### Useful Websites (I have modified the steps and settings to cope with our specific environment, the following information is for reference only.)
+	* [Ruby Version Manager (RVM)](http://rvm.io/)
+	* [How To Setup Ruby on Rails with Postgres](https://www.digitalocean.com/community/articles/how-to-setup-ruby-on-rails-with-postgres)
+	* [How to Create and Install an Apache Self Signed Certificate](https://www.sslshopper.com/article-how-to-create-and-install-an-apache-self-signed-certificate.html)
+	* [Ruby on Rails Tutorial](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book)
