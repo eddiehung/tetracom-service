@@ -12,3 +12,10 @@
 	* Admin can see all user details.
 	* Admin can set the permission of the other users (normal, admin).
 
+### Allow searching
+	* Name
+	* Expertises
+
+### Sort list
+	* Name
+
