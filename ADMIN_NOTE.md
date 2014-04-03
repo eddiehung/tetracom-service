@@ -150,10 +150,10 @@ Database Administration
 
 		Login cvm-tetracom
 		rails console production
-		useful commands
-			User.find(1)
-			User.find_by(name: "")
-			User.set_attribute(:admin, false)
+		//useful commands:
+		//	User.find(1)
+		//	User.find_by(name: "")
+		//	User.set_attribute(:admin, false)
 	
 Useful Websites
 =======================
