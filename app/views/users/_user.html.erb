@@ -6,9 +6,9 @@
 			| <%= link_to "edit", edit_user_path(user) %>
 			| 
 			<%= if user.admin? %>
-				<%= link_to "set_normal", promote_user_path(user) %>
+				<%= link_to "set_normal", set_normal_user_path(user) %>
 			<%= else %>
-				<%= link_to "set_admin", promote_user_path(user) %>
+				<%= link_to "set_admin", set_admin_user_path(user) %>
 			<%= end %>
 			| <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
 		<% end %>
