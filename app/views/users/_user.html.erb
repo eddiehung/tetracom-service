@@ -5,11 +5,11 @@
 		<% if current_user.admin? && !current_user?(user) %>
 			| <%= link_to "edit", edit_user_path(user) %>
 			| 
-			<%= if user.admin? %>
+			<% if user.admin? %>
 				<%= link_to "set_normal", set_normal_user_path(user) %>
-			<%= else %>
+			<% else %>
 				<%= link_to "set_admin", set_admin_user_path(user) %>
-			<%= end %>
+			<% end %>
 			| <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
 		<% end %>
 		</td>
