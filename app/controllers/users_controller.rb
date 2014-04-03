@@ -91,4 +91,5 @@ class UsersController < ApplicationController
 		if signed_in?
 			redirect_to root_url, notice: "Already logged in."
 		end
-	enpromoted
+	end
+end
