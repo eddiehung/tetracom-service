@@ -8,10 +8,6 @@
 	* System generate and update the password.
 	* Send to the user's email address.
 
-### Admin interface for users with admin privilege.
-	* Admin can see all user details.
-	* Admin can set the permission of the other users (normal, admin).
-
 ### Allow searching
 	* Name
 	* Expertises

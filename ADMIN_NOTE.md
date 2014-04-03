@@ -113,21 +113,46 @@ Development and Deployment
 
 		cap production deploy
 
-Backup and Restore Database
+Admin Web Interface
 =======================
 
-1. Check the user name, password and database name in the server ``/var/www/tetracom-service/shared/config/database.yml``
+There is an admin interface for users with admin privilege.
+	* Click Experts, you can see several functions next to every user name.
+	* edit: Change user details, including reset password.
+	* set_admin: set the permission of user to admin.
+	* set_normal: set the permission of user to normal.
+	* delete: delete user account.
 
-2. Backup
+Database Administration
+=======================
+
+### Account information
+
+* Check the user name, password and database name in the server ``/var/www/tetracom-service/shared/config/database.yml``
+
+### Backup
 
 		pg-dump -U <user name> -h localhost -Fc -f <backup file name> <database name>
 
-3. Stop the database and restore data
+### Restore data
 
 		service apache2 stop
 		dropdb -U <user name> -h localhost <database name>
 		pg-restore -U <user name> --password -h localhost -v -C -d template1 <backup file name>
 		service apache2 start
+
+### Access database via command prompt
+
+		psql -u <user name> -h localhost -d <database name>
+
+### Access database via rails console
+
+		Login cvm-tetracom
+		rails console production
+		useful commands
+			User.find(1)
+			User.find_by(name: "")
+			User.set_attribute(:admin, false)
 	
 Useful Websites
 =======================
@@ -138,3 +163,4 @@ I have modified the steps and settings to cope with our specific environment, th
 * [How To Setup Ruby on Rails with Postgres](https://www.digitalocean.com/community/articles/how-to-setup-ruby-on-rails-with-postgres)
 * [How to Create and Install an Apache Self Signed Certificate](https://www.sslshopper.com/article-how-to-create-and-install-an-apache-self-signed-certificate.html)
 * [Ruby on Rails Tutorial](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book)
+
