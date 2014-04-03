@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 		if current_user.admin?
 			@users = User.paginate(page: params[:page] )
 		else
-			@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
+			#@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
+			@users = User.paginate(page: params[:page] )
 		end
 	end
 
