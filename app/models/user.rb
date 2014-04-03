@@ -40,6 +40,12 @@ class User < ActiveRecord::Base
 		UserMailer.password_reset(self).deliver
 	end
 
+	def generate_token(column)
+		begin
+			self[column] = SecureRandom.urlsafe_base64
+		end while User.exists?(column => self[column])
+	end
+
 	def following?(other_user)
 		relationships.find_by(followed_id: other_user.id)
 	end
