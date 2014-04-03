@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
 
+  get "password_resets/new"
 	resources :users do
 		member do
 			get :following, :followers, :set_admin, :set_normal
@@ -7,7 +8,10 @@ SampleApp::Application.routes.draw do
 	end
 	resources :sessions, 		only: [:new, :create, :destroy]
 	resources :relationships, 	only: [:create, :destroy]
+	resources :password_resets
+
 	root "static_pages#home"
+
 	match '/signup',  to: 'users#new',            via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
