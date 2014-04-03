@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 	end
 
 	def promote
-		if User.find(params[:id]).update_attributes(:admin, true)
+		if User.find(params[:id]).update_attribute(:admin, true)
 			flash[:success] = "User is promote to admin!"
 			redirect_to users_url
 		end
