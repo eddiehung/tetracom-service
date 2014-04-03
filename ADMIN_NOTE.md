@@ -113,6 +113,8 @@ Development and Deployment
 
 		cap production deploy
 
+4. If some things fail after deployment, it is useful to check ``/var/log/apache2/error.log`` on the server.
+
 Admin Web Interface
 =======================
 
