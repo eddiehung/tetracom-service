@@ -1,7 +1,7 @@
 <% provide(:title, 'All experts') %>
 <h2>
 <%= User.count %> users in total, 
-<%= User.count(:all, :conditions => "expeertise<>''") %> are experts
+<%= User.count(:all, :conditions => "expertise<>''") %> are experts
 </h2>
 
 <%= will_paginate %>
