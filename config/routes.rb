@@ -2,7 +2,7 @@ SampleApp::Application.routes.draw do
 
 	resources :users do
 		member do
-			get :following, :followers, :promote
+			get :following, :followers, :set_admin, :set_normal
 		end
 	end
 	resources :sessions, 		only: [:new, :create, :destroy]
