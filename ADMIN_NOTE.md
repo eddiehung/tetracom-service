@@ -50,8 +50,8 @@ For root access, CSG does not provide sudo, please use Kerberized super-user (ks
 		12 
 		13 <VirtualHost *:443>
 		14     SSLEngine on
-		15     SSLCertificateFile /etc/apache2/ssl.crt/mydomain.crt
-		16     SSLCertificateKeyFile /etc/apache2/ssl.key/mydomain.key
+		15     SSLCertificateFile /etc/apache2/ssl.crt/tetracom-service.doc.ic.ac.uk.crt
+		16     SSLCertificateKeyFile /etc/apache2/ssl.key/tetracom-service.doc.ic.ac.uk.key
 		17     DocumentRoot /var/www/tetracom-service/current/public
 		18     ServerName tetracom-service.doc.ic.ac.uk
 		19     ServerAlias cvm-tetracom.doc.ic.ac.uk
@@ -67,7 +67,8 @@ For root access, CSG does not provide sudo, please use Kerberized super-user (ks
 		a2enmod headers
 
 9. Set up SSL certificate
-	Put them in /etc/apache2/ssl.crt/mydomain.crt and /etc/apache2/ssl.key/mydomain.key
+	Ask CSG to create a CSR (signing request) with ICT, and get a *.key (Key) and a *.crt (certificate).
+	Put them in /etc/apache2/ssl.crt/tetracom-service.doc.ic.ac.uk.crt and /etc/apache2/ssl.key/tetracom-service.doc.ic.ac.uk.key
 
 Client-side Setting
 =======================
