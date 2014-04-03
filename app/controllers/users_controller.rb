@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-	before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :promote]
+	before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :set_admin, :set_normal]
 	before_action :correct_user,   only: [:edit, :update]
-	before_action :admin_user,     only: [:destroy, :promote]
+	before_action :admin_user,     only: [:destroy, :set_admin, :set_normal]
 	before_action :signed_in_user_filter, only: [:new, :create]
 
 	def index
@@ -50,9 +50,16 @@ class UsersController < ApplicationController
 		redirect_to users_url
 	end
 
-	def promote
+	def set_admin
 		if User.find(params[:id]).update_attribute(:admin, true)
-			flash[:success] = "User is promote to admin!"
+			flash[:success] = "User is set to admin."
+			redirect_to users_url
+		end
+	end
+
+	def set_normal
+		if User.find(params[:id]).update_attribute(:admin, false)
+			flash[:success] = "User is set to normal."
 			redirect_to users_url
 		end
 	end
