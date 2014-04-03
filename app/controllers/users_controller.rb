@@ -50,6 +50,13 @@ class UsersController < ApplicationController
 		redirect_to users_url
 	end
 
+	def promote
+		if User.find(params[:id]).update_attributes(:admin, true)
+			flash[:success] = "User is promote to admin!"
+			redirect_to users_url
+		end
+	end
+
 	def following
 		@title = "Experts selected"
 		@user = User.find(params[:id])
@@ -84,5 +91,4 @@ class UsersController < ApplicationController
 		if signed_in?
 			redirect_to root_url, notice: "Already logged in."
 		end
-	end
-end
+	enpromoted
