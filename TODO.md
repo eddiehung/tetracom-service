@@ -3,7 +3,3 @@
 	* Fetch the expert's email address and send a notification (with users' contact information).
 	* Store the connection (user, expert, time) in the database.
 
-### Allow searching
-	* Name
-	* Expertises
-
