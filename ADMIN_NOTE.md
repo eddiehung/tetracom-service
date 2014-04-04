@@ -121,10 +121,12 @@ Admin Web Interface
 There is an admin interface for users with admin privilege.
 
 * Click Experts, you can see several functions next to every user name.
-* edit: Change user details, including reset password.
-* set_admin: set the permission of user to admin.
-* set_normal: set the permission of user to normal.
-* delete: delete user account.
+	* edit: Change user details, including reset password.
+	* set_admin: set the permission of user to admin.
+	* set_normal: set the permission of user to normal.
+	* delete: delete user account.
+
+* Users without profile pictures displayed have set their name to be hidden.
 
 Database Administration
 =======================

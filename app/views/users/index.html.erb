@@ -1,4 +1,4 @@
-<% provide(:title, 'All experts') %>
+<% provide(:title, 'All users') %>
 <h2>
 <%= User.count %> users in total, 
 <%= User.count(:all, :conditions => "expertise<>''") %> are experts
