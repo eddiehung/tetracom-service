@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 	def index
 		#@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
-		@users = params[:search] ? User.paginate(:per_page => 20, page: params[:page], :order => 'name').search(params[:search]) : User.paginate(:per_page => 20, page: params[:page], :order => 'name')
+		@users = params[:search] ? User.paginate(:per_page => 20, page: params[:page], :order => 'name').search(params[:search].downcase) : User.paginate(:per_page => 20, page: params[:page], :order => 'name')
 	end
 
 	def search
