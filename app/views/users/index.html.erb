@@ -1,15 +1,12 @@
 <% provide(:title, 'All users') %>
 <h2>
-<%= User.count %> users in total, 
-<%= User.count(:all, :conditions => "expertise<>''") %> are experts
+	<%= User.count %> users in total, 
+	<%= User.count(:all, :conditions => "expertise<>''") %> are experts
 </h2>
 
-<% form_tag projects_path, :method => 'get' do %>
-	<p>
-	<%= text_field_tag :search, params[:search] %>
-	<%= submit_tag "Search", :name => nil %>
-	</p>
-<% end %>
+<div id="search">
+	<%= render :partial => 'users/search' %>
+</div>
 
 <%= will_paginate %>
 
