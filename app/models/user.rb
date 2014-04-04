@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
 	end
 
 	def self.search(search)
-		search_condition = "%" + search + "%"
+		search_condition = "%#{search}%"
 		find(:all, :conditions => ['name LIKE ? OR expertise LIKE ?', search_condition, search_condition])
 	end
 
