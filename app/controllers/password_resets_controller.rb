@@ -27,4 +27,10 @@ class PasswordResetsController < ApplicationController
 			render :edit
 		end
 	end
+
+	private
+	def user_params
+		params.require(:user).permit(:name, :email, :phone, :affiliation, :expertise, :password, :password_confirmation, :show_name, :show_email, :show_phone, :show_affiliation)
+	end
+
 end
