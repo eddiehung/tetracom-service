@@ -9,8 +9,8 @@
 	<%= text_field_tag :search, params[:search], placeholder: "one name or expertise at a time" %>
 	<table>
 		<tr>
-			<td><%= submit_tag "Search", :name => nil %></td>
-			<td><%= link_to "Show all", users_path %></td>
+			<td valign="middle"><%= submit_tag "Search", :name => nil %></td>
+			<td valign="middle"><%= link_to "Show all", users_path %></td>
 		</tr>
 	</table>
 <% end %>
@@ -19,6 +19,7 @@
 
 <table class="table table-striped">
 	<%= render @users %>
+	<%= @users.count %> returned, 
 </table>
 
 <%= will_paginate %>
