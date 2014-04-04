@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 		cond_text, cond_values = [], []
 		args.each do |str|
 			next if str.blank?  
-			cond_text << "( %s )" % str.split.map{|w| "lower(expertise) LIKE ? "}.join(" OR ")
+			cond_text << "( %s )" % str.downcase.split.map{|w| "lower(expertise) LIKE ? "}.join(" OR ")
 			cond_values.concat(str.split.map{|w| "%#{w}%"})
 		end
 		all :conditions =>  [cond_text.join(" AND "), *cond_values]
