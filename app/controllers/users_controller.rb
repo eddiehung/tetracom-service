@@ -6,15 +6,15 @@ class UsersController < ApplicationController
 
 	def index
 		if current_user.admin?
-			@users = User.paginate(page: params[:page] )
+			@users = User.paginate(page: params[:page], :order => 'name')
 		else
 			#@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
-			@users = User.paginate(page: params[:page] )
+			@users = User.paginate(page: params[:page])
 		end
 	end
 
 	def show
-		@user = User.find(params[:id], :order => 'name')
+		@user = User.find(params[:id])
 	end
 
 	def new
