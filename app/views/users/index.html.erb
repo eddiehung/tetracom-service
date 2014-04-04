@@ -8,6 +8,7 @@
 <%= form_tag(users_path, :method => "get", id: "search-form") do %>
 	<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
 	<%= submit_tag "Search", :name => nil %>
+	<%= link_to "Show all", users_path %>
 <% end %>
 
 <%= will_paginate %>
