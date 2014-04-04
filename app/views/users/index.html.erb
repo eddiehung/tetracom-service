@@ -11,12 +11,8 @@
 <% end %>
 
 <h2>
-<table>
-	<tr>
-		<td valign="middle"><%= @users.count %> results returned,</td> 
-		<td valign="middle"><%= link_to "reset", users_path %></td>
-	</tr>
-</table>
+	<%= @users.count %> results returned.
+	<%= link_to "Reset", users_path %>.
 </h2>
 
 <%= will_paginate %>
