@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
 	def index
 		if current_user.admin?
-			@users = User.paginate(page: params[:page], :order => 'name')
+			#@users = User.paginate(page: params[:page], :order => 'name')
+			@users = User.search(params[:search]);
 		else
 			#@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
 			@users = User.paginate(page: params[:page], :order => 'name')

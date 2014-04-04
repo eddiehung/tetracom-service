@@ -46,6 +46,14 @@ class User < ActiveRecord::Base
 		end while User.exists?(column => self[column])
 	end
 
+	def self.search(search)
+		if search
+			find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+		else
+			find(:all)
+		end
+	end
+
 	def following?(other_user)
 		relationships.find_by(followed_id: other_user.id)
 	end
