@@ -6,11 +6,14 @@
 
 <p>Search by expertises:</p>
 <%= form_tag(users_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "one expertise at a time" %>
-	<%= submit_tag "Search", :name => nil %>
+	<%= text_field_tag :search, params[:search], placeholder: "one name or expertise at a time" %>
+	<table>
+		<tr>
+			<td><%= submit_tag "Search", :name => nil %></td>
+			<td><%= link_to "Show all", users_path %></td>
+		</tr>
+	</table>
 <% end %>
-
-<%= button_to 'Show all', users_path %>
 
 <%= will_paginate %>
 
