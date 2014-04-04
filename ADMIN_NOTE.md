@@ -108,6 +108,8 @@ Development and Deployment
 
 1. Do your own development, to run development server
 
+		// Put database.yml under config/
+		rake db:migrate
 		rails s -p 55558
 
 2. Commit the updates to GitHub
