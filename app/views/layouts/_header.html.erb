@@ -11,9 +11,9 @@
 				<%= link_to "Home",    root_path %>
 			<% end %>
 			</li>
-			<li><%= link_to "Help",    help_path %></li>
 			<% if signed_in? %>
 				<li><%= link_to "List Users", users_path %></li>
+				<li><%= link_to "Help",    help_path %></li>
 				<li id="fat-menu" class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					Account <b class="caret"></b>
@@ -27,6 +27,7 @@
 				</ul>
 				</li>
 			<% else %>
+				<li><%= link_to "Help",    help_path %></li>
 				<li><%= link_to "Sign in", signin_path %></li>
 			<% end %>
 		</ul>
