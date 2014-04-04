@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 	before_save :default_values
 	before_create :create_remember_token
 
+	acts_as_messageable
+
 	validates :name, presence: true, length: { maximum: 50 }
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -24,6 +26,10 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 	validates :password, length: { minimum: 6 }, allow_nil: true
+
+	def mailboxer_email(object)
+		email
+	end
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64

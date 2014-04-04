@@ -10,6 +10,14 @@ SampleApp::Application.routes.draw do
 	resources :relationships, 	only: [:create, :destroy]
 	resources :password_resets
 
+	resources :conversations, only: [:index, :show, :new, :create] do
+		member do
+			post :reply
+			post :trash
+			post :untrash
+		end
+	end
+
 	root "static_pages#home"
 
 	match '/signup',  to: 'users#new',            via: 'get'
