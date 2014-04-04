@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 			@users = User.paginate(page: params[:page], :order => 'name')
 		else
 			#@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
-			@users = User.paginate(page: params[:page])
+			@users = User.paginate(page: params[:page], :order => 'name')
 		end
 	end
 

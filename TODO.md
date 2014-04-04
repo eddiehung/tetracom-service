@@ -7,6 +7,3 @@
 	* Name
 	* Expertises
 
-### Sort list
-	* Name
-
