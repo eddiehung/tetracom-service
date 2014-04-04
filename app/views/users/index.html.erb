@@ -1,8 +1,8 @@
 <% provide(:title, 'All users') %>
-<h2>
+<h1>
 	<%= User.count %> users in total, 
 	<%= User.count(:all, :conditions => "expertise<>''") %> are experts.
-</h2>
+</h1>
 
 <p>Search by expertises:</p>
 <%= form_tag(users_path, :method => "get", id: "search-form") do %>
@@ -10,12 +10,14 @@
 	<%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<h2>
 <table>
 	<tr>
 		<td valign="middle"><%= @users.count %> results returned,</td> 
 		<td valign="middle"><%= link_to "reset", users_path %></td>
 	</tr>
 </table>
+</h2>
 
 <%= will_paginate %>
 
