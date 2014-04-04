@@ -4,9 +4,10 @@
 	<%= User.count(:all, :conditions => "expertise<>''") %> are experts
 </h2>
 
-<div id="search">
-	<%= render :partial => 'users/search' %>
-</div>
+<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+	<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+	<%= submit_tag "Search", :name => nil %>
+<% end %>
 
 <%= will_paginate %>
 
