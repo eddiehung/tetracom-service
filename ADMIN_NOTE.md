@@ -66,7 +66,13 @@ For root access, CSG does not provide sudo, please use Kerberized super-user (ks
 		a2enmod ssl
 		a2enmod headers
 
-9. Set up SSL certificate
+9. Set up document root
+		
+		mkdir /var/www/tetracom-serviec
+		chown -R root:cc /var/www/tetracom-service
+		chmod -R 775 /var/www/tetracom-service
+
+10. Set up SSL certificate
 	* Ask CSG to create a CSR (signing request) with ICT, and get a *.key (Key) and a *.crt (certificate).
 	* Put them as /etc/apache2/ssl.crt/tetracom-service.doc.ic.ac.uk.crt and /etc/apache2/ssl.key/tetracom-service.doc.ic.ac.uk.key
 	* Set both the key and certificate as read only by root (chmod 400).
