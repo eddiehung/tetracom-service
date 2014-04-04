@@ -6,7 +6,7 @@
 
 <p>Search by expertises:</p>
 <%= form_tag(users_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "one name or expertise at a time" %>
+	<%= text_field_tag :search, params[:search], placeholder: "one name or expertise at a time." %>
 	<%= submit_tag "Search", :name => nil %>
 <% end %>
 
