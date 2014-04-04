@@ -1,7 +1,7 @@
 = simple_form_for :conversation, url: :conversations do |f|
-  = f.input :recipients
+  = f.hidden_field :recipient_id, value: @recipient_id
   = f.input :subject
   = f.input :body
   .form-actions
-    = f.button :submit, class: 'btn-primary'
+    = submit_tag 'Send', type: :submit, class: 'btn btn-primary'
     = submit_tag 'Cancel', type: :reset, class: 'btn btn-danger'

@@ -1,13 +1,17 @@
 class ConversationsController < ApplicationController
-	before_action :signed_in_user, only: [:create, :reply, :trash, :untrash]
+	before_action :signed_in_user, only: [:new, :create, :reply, :trash, :untrash]
 	helper_method :mailbox, :conversation
 
+	def new
+		@recipient_id = params[:recipient_id]
+	end
+
 	def create
-		recipient_emails = conversation_params(:recipients).split(',')
-		recipients = User.where(email: recipient_emails).all
+		@recipient_id = params[:conversation][:recipient_id]
+		recipient = User.find(@recipient_id)
 
 		conversation = current_user.
-			send_message(recipients, *conversation_params(:body, :subject)).conversation
+			send_message(recipient, *conversation_params(:body, :subject)).conversation
 
 		redirect_to conversation
 	end
