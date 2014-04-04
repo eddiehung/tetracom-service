@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 		end while User.exists?(column => self[column])
 	end
 
-	def self.search(args)
+	def self.search(*args)
 		#search_condition = "%#{search.downcase}%"
 		#find(:all, :conditions => ['lower(name) LIKE ? OR lower(expertise) LIKE ?', search_condition, search_condition])
 		return [] if args.blank?
