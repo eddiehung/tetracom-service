@@ -6,9 +6,9 @@
 
 <p>Search by expertises:</p>
 <%= form_tag(users_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+	<%= text_field_tag :search, params[:search], placeholder: "expertise1, expertise 2, ..." %>
 	<%= submit_tag "Search", :name => nil %>
-	<%= submit_tag "Show all", :name => nil, :search => '' %>
+	<%= submit_tag "Show all", :name => nil, params[:search] => "" %>
 <% end %>
 
 <%= will_paginate %>
