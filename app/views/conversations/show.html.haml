@@ -1,5 +1,4 @@
 %h1= conversation.subject
-<%= will_paginate %>
 %table{:class => "table table-striped"}
     %tr
         %th{:width => "20%"} Recipient
@@ -13,5 +12,4 @@
         %td= message.body
         %td= message.created_at
 %br
-<%= will_paginate %>
 = render 'messages/form', conversation: conversation

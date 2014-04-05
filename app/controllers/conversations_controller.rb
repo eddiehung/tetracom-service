@@ -34,11 +34,11 @@ class ConversationsController < ApplicationController
 	private
 
 	def mailbox
-		@mailbox ||= current_user.mailbox.paginate(:per_page => 10, page: params[:page])
+		@mailbox ||= current_user.mailbox
 	end
 
 	def conversation
-		@conversation ||= mailbox.paginate(:per_page => 10, page: params[:page]).conversations.find(params[:id])
+		@conversation ||= mailbox
 	end
 
 	def conversation_params(*keys)
