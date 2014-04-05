@@ -7,7 +7,8 @@
         %th{:width => "20%"} Date & Time
     = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
         - message = receipt.message
-        %td= message.recipients.select{|recipient| recipient.name != message.sender.name}.first.name
+        - recipient = message.recipients.select{|recipient| recipient.name != message.sender.name}.first
+        %td= recipient.show_name==true ? recipient.name : "Name hidden (#{recipient.id})"
         %td= message.subject
         %td= message.body
         %td= message.created_at
