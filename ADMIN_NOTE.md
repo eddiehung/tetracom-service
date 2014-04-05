@@ -163,7 +163,7 @@ Database Administration
 
 		Login cvm-tetracom
 		Go to /var/www/tetracom-service/current/
-		rails console production
+		rails console production [gem install rails (as root) if console fails to start]
 		//useful commands:
 		//	User.find(1)
 		//	User.find_by(name: "")
