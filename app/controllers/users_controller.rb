@@ -6,11 +6,19 @@ class UsersController < ApplicationController
 
 	def index
 		#@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
-		@users = params[:search] ? User.paginate(:per_page => 20, page: params[:page], :order => 'name').search(params[:search]) : User.paginate(:per_page => 20, page: params[:page], :order => 'name')
+		if current_user.admin?
+			@users = params[:search] ? User.paginate(:per_page => 20, page: params[:page], :order => 'name').search_admin(params[:search]) : User.paginate(:per_page => 20, page: params[:page], :order => 'name')
+		else
+			@users = params[:search] ? User.paginate(:per_page => 20, page: params[:page], :order => 'name').search(params[:search]) : User.paginate(:per_page => 20, page: params[:page], :order => 'name')
+		end
 	end
 
 	def search
 		@users = User.search params[:search]
+	end
+
+	def search_admin
+		@users = User.search_admin params[:search]
 	end
 
 	def show
