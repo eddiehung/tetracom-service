@@ -1,4 +1,5 @@
 %h1 My messages
+<%= will_paginate %>
 %table{:class => "table table-striped"}
     %tr
         %th{:width => "33%"} Inbox 
@@ -8,3 +9,4 @@
         %td= render mailbox.inbox
         %td= render mailbox.sentbox
         %td= render mailbox.trash
+<%= will_paginate %>
