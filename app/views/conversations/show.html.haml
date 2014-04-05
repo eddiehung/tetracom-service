@@ -9,20 +9,14 @@
     = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
         - message = receipt.message
         - if message.sender.nil?
+            %td= "(User does not exist)"
             - recipient = message.recipients.select{|recipient| recipient.present?}.first
         - else
+            %td= current_user?(message.sender)||message.sender.show_name==true ? message.sender.name : current_user.admin? ? message.sender.name+" (user set hidden)" : "Name hidden (#{message.sender.id})"
             - recipient = message.recipients.select{|recipient| recipient.name != message.sender.name}.first
         - if recipient.nil?
-            - if message.sender.nil?
-                %td= "(User does not exist)"
-            - else
-                %td= current_user?(message.sender)||message.sender.show_name==true ? message.sender.name : current_user.admin? ? message.sender.name+" (user set hidden)" : "Name hidden (#{message.sender.id})"
             %td= "(User does not exist)"
         - else
-            - if message.sender.nil?
-                %td= "(User does not exist)"
-            - else
-                %td= current_user?(message.sender)||message.sender.show_name==true ? message.sender.name : current_user.admin? ? message.sender.name+" (user set hidden)" : "Name hidden (#{message.sender.id})"
             %td= current_user?(recipient)||recipient.show_name==true ? recipient.name : current_user.admin? ? recipient.name+" (user set hidden)" : "Name hidden (#{recipient.id})"
         %td= message.subject
         %td= message.body
