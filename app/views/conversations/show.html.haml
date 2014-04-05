@@ -1,13 +1,15 @@
 %h1= conversation.subject
 %table{:class => "table table-striped"}
     %tr
-        %th{:width => "20%"} Recipient
-        %th{:width => "30%"} Subject
-        %th{:width => "30%"} Body
+        %th{:width => "15%"} Sender
+        %th{:width => "15%"} Recipient
+        %th{:width => "25%"} Subject
+        %th{:width => "25%"} Body
         %th{:width => "20%"} Date & Time
     = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
         - message = receipt.message
         - recipient = message.recipients.select{|recipient| recipient.name != message.sender.name}.first
+        %td= current_user?(message.sender)||message.sender.show_name==true ? message.sender.name : current_user.admin? ? message.sender.name+" (user set hidden)" : "Name hidden (#{message.sender.id})"
         %td= current_user?(recipient)||recipient.show_name==true ? recipient.name : current_user.admin? ? recipient.name+" (user set hidden)" : "Name hidden (#{recipient.id})"
         %td= message.subject
         %td= message.body
