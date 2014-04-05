@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-	before_action :signed_in_user, only: [:new, :create, :reply, :trash, :untrash]
+	before_action :signed_in_user, only: [:new, :create, :reply, :trash, :untrash, :delete]
 	helper_method :mailbox, :conversation
 
 	def new

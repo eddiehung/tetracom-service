@@ -16,6 +16,7 @@ SampleApp::Application.routes.draw do
 			post :reply
 			post :trash
 			post :untrash
+			post :delete
 		end
 	end
 
