@@ -77,6 +77,6 @@ class User < ActiveRecord::Base
 
 	def default_values
 		self.email = email.downcase
-		self.show_email ||= true
+		#self.show_email ||= true
 	end
 end
