@@ -8,7 +8,10 @@
         %th{:width => "20%"} Date & Time
     = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
         - message = receipt.message
-        - recipient = message.recipients.select{|recipient| recipient.name != message.sender.name}.first
+        - if message.sender.name.nil?
+            - recipient = message.recipients.select{|recipient| recipient.present?}.first
+        - else
+            - recipient = message.recipients.select{|recipient| recipient.name != message.sender.name}.first
         - if recipient.nil?
             - if message.sender.nil?
                 %td= "(User does not exist)"
