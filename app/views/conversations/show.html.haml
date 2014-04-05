@@ -7,7 +7,7 @@
         %th{:width => "20%"} Date & Time
     = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
         - message = receipt.message
-        %td= message.recipients.find(["id != ?", message.sender.id]).first.name
+        %td= message.recipients.select{|recipient| recipient.name != message.sender.name}.first.name
         %td= message.subject
         %td= message.body
         %td= message.created_at
