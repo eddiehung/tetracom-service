@@ -8,7 +8,7 @@
     = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
         - message = receipt.message
         - recipient = message.recipients.select{|recipient| recipient.name != message.sender.name}.first
-        %td= current_user?(recipient)||recipient.show_name==true ? recipient.name : current_user.admin? ? recipient.name "(user set hidden)" : "Name hidden (#{recipient.id})"
+        %td= current_user?(recipient)||recipient.show_name==true ? recipient.name : current_user.admin? ? recipient.name+"(user set hidden)" : "Name hidden (#{recipient.id})"
         %td= message.subject
         %td= message.body
         %td= message.created_at
