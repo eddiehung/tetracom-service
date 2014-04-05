@@ -27,8 +27,12 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6 }, allow_nil: true
 
+	def name
+		return "TETRACOM-service"
+	end
+
 	def mailboxer_email(object)
-		email
+		return "no-reply@tetracom-service.doc.ic.ac.uk"
 	end
 
 	def User.new_remember_token
