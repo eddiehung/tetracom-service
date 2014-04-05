@@ -135,7 +135,7 @@ There is an admin interface for users with admin privilege.
 	* set_normal: set the permission of user to normal.
 	* delete: delete user account.
 
-* Users without profile pictures displayed have set their name to be hidden.
+* Admin can see if a user has set their name to be hidden.
 
 Database Administration
 =======================
