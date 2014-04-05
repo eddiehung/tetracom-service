@@ -28,11 +28,11 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 6 }, allow_nil: true
 
 	def name
-		return "TETRACOM-service"
+		name
 	end
 
 	def mailboxer_email(object)
-		return "no-reply@tetracom-service.doc.ic.ac.uk"
+		email
 	end
 
 	def User.new_remember_token
