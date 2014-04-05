@@ -33,6 +33,7 @@ class ConversationsController < ApplicationController
 
 	def delete
 		conversation.mark_as_deleted(current_user)
+		alfa.mark_as_deleted(conversation)
 		redirect_to :conversations
 	end
 
