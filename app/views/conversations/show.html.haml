@@ -1,11 +1,15 @@
 %h1= conversation.subject
 %table{:class => "table table-striped"}
     %tr
-        %th{:width => "40%"} Subject
-        %th{:width => "60%"} Body
+        %th{:width => "20%"} Recipient
+        %th{:width => "30%"} Subject
+        %th{:width => "30%"} Body
+        %th{:width => "20%"} Date & Time
     = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
         - message = receipt.message
+        %td= message.recipients.first.name
         %td= message.subject
         %td= message.body
+        %td= message.created_at
 %br
 = render 'messages/form', conversation: conversation
