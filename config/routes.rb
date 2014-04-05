@@ -10,7 +10,7 @@ SampleApp::Application.routes.draw do
 	resources :relationships, 	only: [:create, :destroy]
 	resources :password_resets
 
-	resources :conversations, only: [:index, :show, :new, :create] do
+	resources :conversations, only: [:index, :show] do
 		member do
 			post :new
 			post :reply
