@@ -27,10 +27,6 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6 }, allow_nil: true
 
-	def name
-		name
-	end
-
 	def mailboxer_email(object)
 		email
 	end
