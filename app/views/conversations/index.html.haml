@@ -1,7 +1,10 @@
 %h1 My messages
-%h2 Inbox
-%ul= render mailbox.inbox
-%h2 Sentbox
-%ul= render mailbox.sentbox
-%h2 Trash
-%ul= render mailbox.trash
+%table{:class => "table table-striped"}
+    %tr
+        %th{:width => "33%"} Inbox 
+        %th{:width => "33%"} Sentboxtbox 
+        %th{:width => "33%"} Trash  
+    %tr
+        %td= render mailbox.inbox
+        %td= render mailbox.sentbox
+        %td= render mailbox.trash

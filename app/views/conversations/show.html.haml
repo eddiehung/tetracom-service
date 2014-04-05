@@ -1,7 +1,11 @@
 %h1= conversation.subject
-%ul
-  = content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt|
-    - message = receipt.message
-    %h3= message.subject
-    %p= message.body
+%table{:class => "table table-striped"}
+    %tr
+        %th{:width => "40%"} Subject
+        %th{:width => "60%"} Body
+    = content_tag_for(:tr, conversation.receipts_for(current_user)) do |receipt|
+        - message = receipt.message
+        %td= message.subject
+        %td= message.body
+%br
 = render 'messages/form', conversation: conversation
