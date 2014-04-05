@@ -31,6 +31,11 @@ class ConversationsController < ApplicationController
 		redirect_to :conversations
 	end
 
+	def delete
+		conversation.mark_as_deleted(current_user)
+		redirect_to :conversations
+	end
+
 	private
 
 	def mailbox
