@@ -157,11 +157,12 @@ Database Administration
 
 ### Access database via command prompt
 
-		psql -u <user name> -h localhost -d <database name>
+		psql -U <user name> -h localhost -d <database name>
 
 ### Access database via rails console
 
 		Login cvm-tetracom
+		Go to /var/www/tetracom-service/current/
 		rails console production
 		//useful commands:
 		//	User.find(1)
