@@ -146,13 +146,13 @@ Database Administration
 
 ### Backup
 
-		pg-dump -U <user name> -h localhost -Fc -f <backup file name> <database name>
+		pg_dump -U <user name> -h localhost -Fc -f <backup file name> <database name>
 
 ### Restore data
 
 		service apache2 stop
 		dropdb -U <user name> -h localhost <database name>
-		pg-restore -U <user name> --password -h localhost -v -C -d template1 <backup file name>
+		pg_restore -U <user name> --password -h localhost -v -C -d template1 <backup file name>
 		service apache2 start
 
 ### Access database via command prompt
