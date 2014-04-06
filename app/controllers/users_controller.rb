@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
 	def index
 		if current_user.admin?
-			@users = params[:search] ? User.order(:name).page(params[:page]).per(20).search_admin(params[:search]) : User.order(:name).page(params[:page]).per(20)
+			@users = params[:search] ? User.search_admin(params[:search]).order(:name).page(params[:page]).per(20) : User.order(:name).page(params[:page]).per(20)
 		else
-			@users = params[:search] ? User.order(:name).page(params[:page]).per(20).search(params[:search]) : User.order(:name).page(params[:page]).per(20)
+			@users = params[:search] ? User.search(params[:search]).order(:name).page(params[:page]).per(20) : User.order(:name).page(params[:page]).per(20)
 		end
 	end
 
