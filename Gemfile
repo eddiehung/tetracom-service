@@ -60,7 +60,7 @@ gem 'jbuilder', '1.0.2'
 
 gem 'haml-rails'
 gem 'simple_form'
-gem 'mailboxer'
+gem 'mailboxer', :git => 'git@github.com:thomasccp/mailboxer.git', :branch => 'test-conversation-model'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
