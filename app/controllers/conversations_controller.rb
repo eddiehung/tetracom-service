@@ -1,6 +1,17 @@
 class ConversationsController < ApplicationController
 	before_action :signed_in_user, only: [:new, :create, :reply, :trash, :untrash, :delete]
+	before_filter :mailbox, :box
 	helper_method :mailbox, :conversation
+
+	def index
+		if @box.eql? "inbox"
+			@conversations = @mailbox.inbox.page(params[:page]).per(10)
+		elsif @box.eql? "sentbox"
+			@conversations = @mailbox.sentbox.page(params[:page]).per(10)
+		else
+			@conversations = @mailbox.trash.page(params[:page]).per(10)
+		end
+	end
 
 	def new
 		@recipient_id = params[:recipient_id]
@@ -40,6 +51,13 @@ class ConversationsController < ApplicationController
 
 	def mailbox
 		@mailbox ||= current_user.mailbox
+	end
+
+	def box
+		if params[:box].blank? or !["inbox","sentbox","trash"].include?params[:box]
+			params[:box] = 'inbox'
+		end
+		@box = params[:box]
 	end
 
 	def conversation

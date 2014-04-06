@@ -1,10 +1,12 @@
-%h1 My messages
+- if @box.eql? "inbox"
+    %h1 My inbox
+- elsif @box.eql? "sentbox"
+    %h1 My sentbox
+- else
+    %h1 My trash
 %table{:class => "table table-striped"}
     %tr
-        %th{:width => "33%"} Inbox 
-        %th{:width => "33%"} Sentbox 
-        %th{:width => "33%"} Trash  
+        %th{:width => "33%"} Messages
     %tr
-        %td= render current_user.mailbox.inbox
-        %td= render current_user.mailbox.sentbox
-        %td= render mailbox.trash
+        %td= render @conversations
+%p= paginate @conversations

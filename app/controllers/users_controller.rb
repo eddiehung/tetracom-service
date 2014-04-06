@@ -5,11 +5,10 @@ class UsersController < ApplicationController
 	before_action :signed_in_user_filter, only: [:new, :create]
 
 	def index
-		#@users = User.paginate(page: params[:page], :conditions => "expertise<>''" )
 		if current_user.admin?
-			@users = params[:search] ? User.paginate(:per_page => 20, page: params[:page], :order => 'name').search_admin(params[:search]) : User.paginate(:per_page => 20, page: params[:page], :order => 'name')
+			@users = params[:search] ? User.order(:name).page(params[:page]).per(20).search_admin(params[:search]) : User.order(:name).page(params[:page]).per(20)
 		else
-			@users = params[:search] ? User.paginate(:per_page => 20, page: params[:page], :order => 'name').search(params[:search]) : User.paginate(:per_page => 20, page: params[:page], :order => 'name')
+			@users = params[:search] ? User.order(:name).page(params[:page]).per(20).search(params[:search]) : User.order(:name).page(params[:page]).per(20)
 		end
 	end
 
