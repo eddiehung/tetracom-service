@@ -5,6 +5,6 @@
         %th{:width => "33%"} Sentbox 
         %th{:width => "33%"} Trash  
     %tr
-        %td= render mailbox.inbox
-        %td= render mailbox.sentbox
+        %td= render current_user.mailbox.inbox
+        %td= render current_user.mailbox.sentbox
         %td= render mailbox.trash
