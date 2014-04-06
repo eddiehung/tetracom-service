@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
 	def index
 		if current_user.admin?
-			@users = params[:search] ? Kaminari.paginate_array(User.search_admin(params[:search])).page(params[:page]).per(20) : User.page(params[:page]).per(20)
+			@users = params[:search] ? Kaminari.paginate_array(User.search_admin(params[:search])).page(params[:page]).per(20) : User.order(:name).page(params[:page]).per(20)
 		else
-			@users = params[:search] ? Kaminari.paginate_array(User.search(params[:search])).page(params[:page]).per(20) : User.page(params[:page]).per(20)
+			@users = params[:search] ? Kaminari.paginate_array(User.search(params[:search])).page(params[:page]).per(20) : User.order(:name).page(params[:page]).per(20)
 		end
 	end
 
