@@ -54,12 +54,12 @@ class User < ActiveRecord::Base
 
 	def self.search(search)
 		search_condition = "%#{search.downcase}%"
-		find(:all, :conditions => ['( lower(name) LIKE ? AND show_name = ? ) OR lower(expertise) LIKE ? ', search_condition, true, search_condition])
+		find(:all, :conditions => ['( lower(name) LIKE ? AND show_name = ? ) OR lower(expertise) LIKE ? ', search_condition, true, search_condition], :order => "name")
 	end
 
 	def self.search_admin(search)
 		search_condition = "%#{search.downcase}%"
-		find(:all, :conditions => ['lower(name) LIKE ? OR lower(expertise) LIKE ? ', search_condition, search_condition])
+		find(:all, :conditions => ['lower(name) LIKE ? OR lower(expertise) LIKE ? ', search_condition, search_condition], :order => "name")
 	end
 
 	def following?(other_user)
