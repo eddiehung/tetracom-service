@@ -4,15 +4,9 @@
 		<%= link_to "tetracom", root_path, id: "logo" %>
 		<nav>
 		<ul class="nav pull-right">
-			<li>
-			<% if signed_in? %>
-				<%= link_to "My profile",    current_user %>
-			<% else %>
-				<%= link_to "Home",    root_path %>
-			<% end %>
-			</li>
 			<% if signed_in? %>
 				<li><%= link_to "Users list", users_path %></li>
+				<li><%= link_to "My profile",    current_user %></li>
 				<li id="fat-menu" class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					My messages <b class="caret"></b>
@@ -36,6 +30,7 @@
 				</ul>
 				</li>
 			<% else %>
+				<li><%= link_to "Home",    root_path %></li>
 				<li><%= link_to "Help",    help_path %></li>
 				<li><%= link_to "Sign in", signin_path %></li>
 			<% end %>
