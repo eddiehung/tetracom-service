@@ -3,8 +3,8 @@
     = link_to conversation.subject, conversation_path(conversation.id)
     |
     - if conversation.is_completely_trashed_or_deleted?(current_user)
-      = link_to 'Delete', delete_conversation_path(conversation.id), method: :post
+      = link_to 'Delete permanantly', delete_conversation_path(conversation.id), method: :post
       |
-      = link_to 'Untrash', untrash_conversation_path(conversation.id), method: :post
+      = link_to 'Untrash all', untrash_conversation_path(conversation.id), method: :post
     - else
-      = link_to 'Move to trash', trash_conversation_path(conversation.id), method: :post
+      = link_to 'Trash all', trash_conversation_path(conversation.id), method: :post
