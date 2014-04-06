@@ -15,13 +15,13 @@
 	<%= link_to "Reset", users_path %>.
 </h2>
 
-<%= will_paginate %>
+%p= paginate @users
 
 <table class="table table-striped">
 	<%= render @users %>
 </table>
 
-<%= will_paginate %>
+%p= paginate @users
 
 <small>
 	Please send suggestions for improvement or reports of inappropriate use to: <a href="mailto:thomasccp@msn.com" target="_top">thomasccp@msn.com</a>.
