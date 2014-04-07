@@ -73,8 +73,11 @@ For root access, CSG does not provide sudo, please use Kerberized super-user (ks
 		chmod -R 775 /var/www/tetracom-service
 
 10. Set up SSL certificate
-	* Ask CSG to create a CSR (signing request) with ICT, and get a *.key (Key) and a *.crt (certificate).
-	* Put them as /etc/apache2/ssl.crt/tetracom-service.doc.ic.ac.uk.crt and /etc/apache2/ssl.key/tetracom-service.doc.ic.ac.uk.key
+	* Ask CSG to create a CSR (signing request) with ICT. You will then get a key file and a set of certificate files.
+	* Create a SSL certificate chain [intermed-1] -> [intermed-2] -> [root] by ``cat TERENASSLCA.crt UTNAddTrustServer_CA.crt AddTrustExternalCARoot.crt > CAchain.crt``
+	* Put CAchain.crt in /etc/apache2/ssl.crt/
+	* Put the user SSL certificate in /etc/apache2/ssl.crt/
+	* Put the key file in /etc/apache2/ssl.key/
 	* Set both the key and certificate as read only by root (chmod 400).
 
 Client-side Setting
