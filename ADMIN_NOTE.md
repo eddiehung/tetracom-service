@@ -78,7 +78,7 @@ For root access, CSG does not provide sudo, please use Kerberized super-user (ks
 	* Put CAchain.crt in /etc/apache2/ssl.crt/
 	* Put the user SSL certificate in /etc/apache2/ssl.crt/
 	* Put the key file in /etc/apache2/ssl.key/
-	* Set both the key and certificate as read only by root (chmod 400).
+	* Set all the key and certificate files as read only by root (chmod 400).
 
 Client-side Setting
 =======================
