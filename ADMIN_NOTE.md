@@ -74,7 +74,7 @@ For root access, CSG does not provide sudo, please use Kerberized super-user (ks
 
 10. Set up SSL certificate
 	* Ask CSG to create a CSR (signing request) with ICT. You will then get a key file and a set of certificate files.
-	* Create a SSL certificate chain [intermed-1] -> [intermed-2] -> [root] by ``cat TERENASSLCA.crt UTNAddTrustServer_CA.crt AddTrustExternalCARoot.crt > CAchain.crt``
+	* Create a SSL certificate chain [intermed-1] -> [intermed-2] -> [root](optional) by ``cat TERENASSLCA.crt UTNAddTrustServer_CA.crt AddTrustExternalCARoot.crt (optional) > CAchain.crt``
 	* Put CAchain.crt in /etc/apache2/ssl.crt/
 	* Put the user SSL certificate in /etc/apache2/ssl.crt/
 	* Put the key file in /etc/apache2/ssl.key/
