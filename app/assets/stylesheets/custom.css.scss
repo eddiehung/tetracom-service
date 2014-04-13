@@ -62,7 +62,10 @@ h2 {
 	margin-bottom: 30px;
 	text-align: center;
 	font-weight: normal;
-	color: $grayLight;
+}
+
+h5 {
+	text-align: justify;
 }
 
 p {
@@ -228,5 +231,5 @@ input {
 
 ul.nav a { color: white !important; }
 ul.nav a:hover { color: $grayLight !important; }
-ul.dropdown-menu a { color: $grayLight !important; }
+ul.dropdown-menu a { color: $grayDarker !important; }
 ul.dropdown-menu a:hover { color: white !important; }
