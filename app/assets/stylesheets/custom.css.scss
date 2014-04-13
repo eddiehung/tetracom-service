@@ -226,3 +226,7 @@ input {
 	}
 }
 
+ul.nav a { color: white !important; }
+ul.nav a:hover { color: $grayLight !important; }
+ul.dropdown-menu a { color: $grayLight !important; }
+ul.dropdown-menu a:hover { color: white !important; }
